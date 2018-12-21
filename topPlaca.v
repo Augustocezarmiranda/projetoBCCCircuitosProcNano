@@ -14,11 +14,13 @@ module topPlaca(
 				output [7:0] HEX7_D,
 				output teste
 				);
-	
+	//foto 1 20/12/2018
+
 	localparam STEP=0, AUTO=1;
 
+	assign LEDR = SW;
+	//assign LEDG[3:0] = KEY;	20/12/2018
 	
-
 	wire clk, clkCPU, btStep, btRst, swModo, swDisplay;  
 	wire [7:0] enderecoMemoria, pOUTPUT, pINPUT;
 	wire [15:0] dadoMemoria;
@@ -36,5 +38,5 @@ module topPlaca(
 	display7seg display5(.dp(1), .dado(enderecoMemoria[7:4]), .leds(HEX5_D));
 	display7seg display6(.dp(1), .dado(pOUTPUT[3:0]), 			 .leds(HEX6_D));
 	display7seg display7(.dp(1), .dado(pOUTPUT[7:4]), 			 .leds(HEX7_D));
-	
+
 endmodule 
