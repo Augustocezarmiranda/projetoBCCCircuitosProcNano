@@ -17,21 +17,26 @@
 WIDTH=16;
 DEPTH=256;
 
-ADDRESS_RADIX=UNS;
+ADDRESS_RADIX=HEX;
 DATA_RADIX=HEX;
 
 CONTENT BEGIN
-	0    :   F000; -- output R0
-	1    :   F200; -- output R1
-	2    :   F400; -- output R2
-	3    :   80f1; -- LRG R0, 0xA1
-	4    :   82F2; -- LRG R1, 0xA2
-	5    :   84F3; -- LRG R2, 0xA3
-	6    :   F000; -- output R0
-	7    :   F200; -- output R1
-	8    :   F400; -- output R2
-	9    :   1288; -- Add R1, R2, R1
-	10   :   F200; -- output R1
-	11   :   F000; -- output R0
-	[12..255]  :   0000; -- NOPs
+	000  :   8000; -- LRG R0, 0x00 
+	001  :   B001; -- BEQ 1
+	002  :   D002; -- JMP 0x02
+	003  :   C0FF; -- BNE -1
+	004  :   8001; -- LRG R0, 0x01
+	005  :   C001; -- BNE 1
+	006  :   D006; -- JMP 6
+	007  :   B0FF; -- BEQ -1
+	008  :   80FF; -- LRG R0, 0xFF
+	009  :   9001; -- BLT 1
+	00A  :   D009; -- JMP 9
+	00B  :   A0FF; -- BGT -1
+	00C  :   8001; -- LRG R0, 1
+	00D  :   A001; -- BGT 1
+	00E  :   D00E; -- JMP 0x0E 
+	00F  :   90FF; -- BLT -1
+	010  :   D010; -- JMP 0x10
+	[011..0FF]  :   0000;  -- NOPs
 END;

@@ -106,7 +106,7 @@ module processador(
 
 
 
- rom rom  ( .address(PC),
+ Rom Rom  ( .address(PC),
 
 				.clock(clk),
 
@@ -117,14 +117,11 @@ module processador(
  mux2x3 muxAddRegWr (.sel(SelRegWr), .in1(dado[5:3]), .in2(dado[11:9]), .out(addRegWr));
 
  
-
  mux2x8 muxSelDSV(.sel(SelDesv), .in1(PC+1), .in2(PC + 1 + endDsv), .out(PCDsv));
 
  
-
  mux2x8 muxSelJMP1(.sel(SelJMP), .in1(PCDsv), .in2(endJMP), .out(newPC));
 
- 
 
  mux2x8 muxDtWr(.sel(selDtWr), .in1(ResultULA), .in2(imediato), .out(dadoWr));
 
@@ -200,5 +197,4 @@ registrador regOUTPUT(.load(LdOUTPUT), .rst(rst), .dadoIn(ResultULA), .dadoOut(p
 
  
 
-endmodule
-
+endmodule 

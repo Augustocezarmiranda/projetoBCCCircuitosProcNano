@@ -17,21 +17,34 @@
 WIDTH=16;
 DEPTH=256;
 
-ADDRESS_RADIX=UNS;
+ADDRESS_RADIX=HEX;
 DATA_RADIX=HEX;
 
 CONTENT BEGIN
-	0    :   F000; -- output R0
-	1    :   F200; -- output R1
-	2    :   F400; -- output R2
-	3    :   80f1; -- LRG R0, 0xA1
-	4    :   82F2; -- LRG R1, 0xA2
-	5    :   84F3; -- LRG R2, 0xA3
-	6    :   F000; -- output R0
-	7    :   F200; -- output R1
-	8    :   F400; -- output R2
-	9    :   1288; -- Add R1, R2, R1
-	10   :   F200; -- output R1
-	11   :   F000; -- output R0
-	[12..255]  :   0000; -- NOPs
+	000  :   F000; -- output R0
+	001  :   F200; -- output R1
+	002  :   F400; -- output R0
+	003  :   F600; -- output R0
+	004  :   F800; -- output R0
+	005  :   FA00; -- output R0
+	006  :   FC00; -- output R0
+	007  :   FE00; -- output R0
+	008  :   1040; -- Add R0, R1, R0
+	009  :   F000; -- output R0
+	00A  :   2288; -- And R1, R2, R1
+	00B  :   F200; -- output R1
+	00C  :   34D0; -- Or R2, R3, R2
+	00D  :   F400; -- output R2
+	00E  :   4718; -- Sub R3, R2, R3
+	00F  :   F600; -- output R3
+	010  :   5820; -- Neg R4, R4
+	011  :   F800; -- output R4
+	012  :   6A28; -- Not R5, R5
+	013  :   FA00; -- output R5
+	014  :   7E30; -- CPY R6, R7
+	015  :   FC00; -- output R6
+	016  :   0000; -- NOP
+	017  :   0000; -- NOP
+	018  :   D018; -- J 0x18
+	[019..0FF]  :   0000;
 END;
